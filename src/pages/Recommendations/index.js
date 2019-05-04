@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import BoxInfo from '../../components/BoxInfo';
 
@@ -6,10 +7,16 @@ import stock from '../../assets/stock.svg';
 import recomendation from '../../assets/recomendation.svg';
 import socialNetwork from '../../assets/socialNetwork.svg';
 
+import {
+  RECOMMENDATIONS_STOCK_SELECTED,
+  RECOMMENDATIONS_RECOMMENDATION,
+  RECOMMENDATIONS_SM_COUNTER,
+} from '../../messages';
+
 import './styles.scss';
 
 
-const Recommendations = () => (
+const Recommendations = ({ recommendations }) => (
   <div className='recommendations'>
     <nav className='recommendations__header'>
       <div className='recommendations__header-content'>
@@ -28,19 +35,19 @@ const Recommendations = () => (
       </h3>
       <div className='recommendations__box-wrapper'>
         <BoxInfo
-          title='Stock selected'
-          text='$GOO'
+          title={RECOMMENDATIONS_STOCK_SELECTED}
+          text={recommendations.stockSymbol}
           icon={stock}
         />
         <BoxInfo
-          title='Recommendation'
-          text='SALE'
+          title={RECOMMENDATIONS_RECOMMENDATION}
+          text={recommendations.recommendation}
           icon={recomendation}
           highlight
         />
         <BoxInfo
-          title='Social network counter'
-          text='200'
+          title={RECOMMENDATIONS_SM_COUNTER}
+          text={recommendations.countOfSocialMediaPost}
           icon={socialNetwork}
         />
       </div>
@@ -54,6 +61,6 @@ const Recommendations = () => (
   </div >
 );
 
+const mapStateToProps = ({ recommendations }) => ({ recommendations });
 
-
-export default Recommendations;
+export default connect(mapStateToProps, null)(Recommendations);
