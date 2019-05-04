@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Button = ({ text, onClick }) => (
-
   <button
     className='button'
     type='button'

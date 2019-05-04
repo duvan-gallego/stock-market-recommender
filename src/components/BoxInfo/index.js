@@ -12,7 +12,9 @@ const BoxInfo = ({
     <div className='boxInfo'>
       {title}
       <div className='boxInfo__detail'>
-        <img src={icon} className='boxInfo__detail-img' />
+        {icon &&
+          <img src={icon} className='boxInfo__detail-img' />
+        }
         <div className={cn('boxInfo__detail-text', { 'boxInfo__detail-text--highlight': highlight })}>
           {text}
         </div>
