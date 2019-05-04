@@ -1,5 +1,11 @@
-
+@import '../../utils/scss/colors';
 
 .home {
+  width: 700px;
+  margin: 5% auto;
+
+  &__title {
+    margin-bottom: 50px;
+  }
 
 }

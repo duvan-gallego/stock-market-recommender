@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Error404 = () => (
-  <h1 className="global__empty_page">
+  <h1>
     Error 404: Page not found.
   </h1>
 );

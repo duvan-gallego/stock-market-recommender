@@ -1,0 +1,19 @@
+@import '../../utils/scss/colors';
+@import '../../utils/scss/font-size';
+
+.input {
+  border: 0;
+  border-bottom: 2px solid $blue1;
+  font-size: $text-size-super-l;
+  line-height: 35px;
+  height: 50px;
+  text-align: center;
+  padding: 10px;
+  background: transparent;
+  color: $gray1;
+  width: 100%;
+
+  &:focus {
+    outline: 0;
+  }
+}
