@@ -8,6 +8,7 @@ const Input = ({
   type,
   name,
   onChange,
+  onKeyDown,
   placeholder,
 }) => (
     <input
@@ -16,6 +17,7 @@ const Input = ({
       name={name}
       type={type}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       placeholder={placeholder}
     />
   );
@@ -26,6 +28,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func,
 };
 
 export default Input;

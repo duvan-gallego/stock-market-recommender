@@ -10,7 +10,6 @@ import {
 } from './api';
 
 function* getRecommendationsWorker(payload) {
-  console.log({ payload });
   try {
     const data = yield call(getRecommendationsApi, payload.stockSymbol);
     yield put({ type: GET_RECOMMENDATIONS_SUCCESS, payload: data });

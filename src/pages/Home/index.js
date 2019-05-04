@@ -40,7 +40,9 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
               placeholder={HOME_INPUT_PLACEHOLDER}
               name='stock_symbol'
               onChange={e => setStockSymbol(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && onClickHandler()}
               alt={HOME_INPUT_PLACEHOLDER}
+
             />
             <Button
               onClick={onClickHandler}
