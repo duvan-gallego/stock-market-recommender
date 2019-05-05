@@ -1,27 +1,37 @@
 import { apiInstance, errorHandler } from '../../api';
 
-export const getRecommendationsApi = (stockSymbol) => {
-
-  // CODE TO GENERATE MOCK DATA
-  const AMOUNT_OF_POST_TO_GENERATE = Math.floor(Math.random() * 100);
-  const stockSymbolUpperCase = `$${stockSymbol.toUpperCase()}`;
-  const buySaleHold = Math.floor(Math.random() * 3);
-  const recommendation = buySaleHold === 0 ? 'BUY' : buySaleHold === 1 ? 'SELL' : 'HOLD';
+// Function to generate randomly socialMedia post, only used to mock data
+// These function should be deleted when BE is ready
+const socialMediaGenerator = (stockSymbol, socialNetwork, amount) => {
   let socialMediaMessages = [];
-  for (let i = 0; i < AMOUNT_OF_POST_TO_GENERATE; i++) {
+  for (let i = 0; i < amount; i++) {
     socialMediaMessages.push(
       {
-        socialNetwork: (Math.floor(Math.random() * 2)) === 1 ? 'Twitter' : 'Facebook',
-        message: `We are actually talking about ${stockSymbolUpperCase} message number ${i}`
+        socialNetwork: socialNetwork === 'All' ? ((Math.floor(Math.random() * 2)) === 1 ? 'Twitter' : 'Facebook') : socialNetwork,
+        message: `We are actually talking about ${stockSymbol} message number ${i}`
       }
     )
   }
+  return socialMediaMessages;
+}
+
+export const getRecommendationsApi = (params) => {
+
+  // CODE TO GENERATE MOCK DATA
+  const AMOUNT_OF_POST = Math.floor(Math.random() * 100);
+  const socialNetwork = params.socialNetwork;
+  const stockSymbolUpperCase = `$${params.stockSymbol.toUpperCase()}`;
+  const buySaleHold = Math.floor(Math.random() * 3);
+  const recommendation = buySaleHold === 0 ? 'BUY' : buySaleHold === 1 ? 'SELL' : 'HOLD';
+  let socialMediaMessages = socialMediaGenerator(stockSymbolUpperCase, socialNetwork, 2);
+
 
   // Mock Data returned
   return {
     stockSymbol: stockSymbolUpperCase,
     stockPrice: Math.floor(Math.random() * 1000),
-    countOfSocialMediaPost: AMOUNT_OF_POST_TO_GENERATE,
+    socialNetwork,
+    countOfSocialMediaPost: AMOUNT_OF_POST,
     dateOfUpdate: new Date(),
     recommendation,
     socialMediaMessages,
@@ -31,7 +41,7 @@ export const getRecommendationsApi = (stockSymbol) => {
   /*return apiInstance({
     url: '/recommendations',
     method: 'get',
-    params: stockSymbol
+    params: params
   })
     .then(({ data: result }) => result)
     .catch(errorHandler)*/

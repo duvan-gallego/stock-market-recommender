@@ -7,6 +7,7 @@ import {
 const initialState = {
   stockSymbol: null,
   stockPrice: null,
+  socialNetwork: null,
   countOfSocialMediaPost: null,
   dateOfUpdate: null,
   recommendation: null,
