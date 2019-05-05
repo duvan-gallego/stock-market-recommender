@@ -13,6 +13,7 @@ describe('<BoxInfo />', () => {
     const wrapper = shallow(<BoxInfo {...props} />);
     expect(wrapper.find('.boxInfo')).toHaveLength(1);
   });
+  // TODO: Add more complex test
 });
 
 
