@@ -1,19 +1,4 @@
-import { apiInstance, errorHandler } from '../../api';
-
-// TODO: Function to generate randomly socialMedia post, only used to mock data
-// These function should be deleted when BE is ready
-const socialMediaGenerator = (stockSymbol, socialNetwork, amount) => {
-  let socialMediaMessages = [];
-  for (let i = 0; i < amount; i++) {
-    socialMediaMessages.push(
-      {
-        socialNetwork: socialNetwork === 'All' ? ((Math.floor(Math.random() * 2)) === 1 ? 'Twitter' : 'Facebook') : socialNetwork,
-        message: `We are actually talking about ${stockSymbol} message number ${i}`
-      }
-    )
-  }
-  return socialMediaMessages;
-}
+import { apiInstance, errorHandler, socialMediaGenerator } from '../../api';
 
 export const getRecommendationsApi = (params) => {
 

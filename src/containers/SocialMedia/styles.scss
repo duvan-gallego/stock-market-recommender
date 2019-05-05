@@ -4,6 +4,10 @@
 
 .socialMedia {
 
+  &__spinner {
+    margin-top: 60px;
+  }
+
   &__get-more {
     font-size: $text-size-xl;
     font-weight: bold;
@@ -12,6 +16,5 @@
     text-transform: capitalize;
     cursor: pointer;
   }
-
 
 }

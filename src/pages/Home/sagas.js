@@ -17,7 +17,6 @@ function* getRecommendationsWorker(payload) {
 
     yield put({ type: GET_RECOMMENDATIONS_SUCCESS, payload: data });
   } catch (e) {
-    console.log(e);
     yield put({ type: GET_RECOMMENDATIONS_ERROR, payload: e });
   }
 }

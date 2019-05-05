@@ -33,7 +33,7 @@ const Recommendations = ({ recommendations }) => (
     </nav>
     <section className='recommendations__body'>
       <header className='recommendations__header'>
-        <img src={graph} className='recommendations__header-img' />
+        <img src={graph} className='recommendations__header-img' alt={RECOMMENDATIONS_RECOMMENDATION} />
         <div className='recommendations__header-text'>
           {RECOMMENDATIONS_RECOMMENDATION} <span className='recommendations__header-text--highlight'>{recommendations.recommendation}</span>
         </div>
