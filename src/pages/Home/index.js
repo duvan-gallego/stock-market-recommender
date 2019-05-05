@@ -86,6 +86,7 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
                   <Button
                     onClick={onClickHandler}
                     text={HOME_BUTTON_TEXT}
+                    big
                   />
                 </>
               )

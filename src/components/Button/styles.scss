@@ -6,20 +6,19 @@
   display: block;
   margin: 30px auto 5px auto;
   font-weight: bold;
-  font-size: 25px;
+  font-size: $text-size-xxl;
   padding: 8px 20px 8px 20px ;
-  background-color: $gray2;
-  color: $neutral-black;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -o-border-radius: 7px;
-  border-radius: 7px;
-  box-shadow: 0 .2em $gray1;
+  background-color: $green1;
+  color: $neutral-white;
+  border-radius: 5px;
   cursor: pointer;
 
-  &:active {
-    box-shadow: none;
-    position: relative;
-    top: .2em;
+  &__big {
+    font-size: $text-size-xxl;
   }
+
+  &__small {
+    font-size: $text-size-xl;
+  }
+
 }

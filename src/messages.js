@@ -17,8 +17,7 @@ export const RECOMMENDATIONS_STOCK_PRICE = 'Stock price'
 export const RECOMMENDATIONS_TODAY_UPDATES = 'Today updates'
 export const RECOMMENDATIONS_GRAPH_COMING_SOON = 'Graph coming soon...'
 export const RECOMMENDATIONS_SOCIAL_MEDIA_TITLE = 'Social media messages'
-
-
+export const RECOMMENDATIONS_GET_MORE = 'Get more'
 
 export const DEFAULT_ERROR = 'Bad request'
 export const BE_ERROR = 'Error: Network Error'

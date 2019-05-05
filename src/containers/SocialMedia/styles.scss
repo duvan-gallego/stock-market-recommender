@@ -3,13 +3,15 @@
 @import '../../utils/scss/font-size';
 
 .socialMedia {
-  height: 300px;
-  width: 48%;
-  border: solid 2px $blue1;
-  border-radius: 5px;
-  text-transform: uppercase;
-  padding: 5px;
-  text-align: center;
-  color: $gray1;
-  font-weight: 500;
+
+  &__get-more {
+    font-size: $text-size-xl;
+    font-weight: bold;
+    color: $blue1;
+    text-decoration: underline;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+
+
 }
