@@ -13,7 +13,7 @@ function* getRecommendationsWorker(payload) {
   try {
     const data = yield call(getRecommendationsApi, payload.data);
     // TODO: This line is added only to better simulate the BE, delete it when BE is ready
-    yield delay(3000);
+    yield delay(2000);
 
     yield put({ type: GET_RECOMMENDATIONS_SUCCESS, payload: data });
   } catch (e) {

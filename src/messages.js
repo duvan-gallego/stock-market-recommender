@@ -18,6 +18,7 @@ export const RECOMMENDATIONS_POINSTS_OF_CHANGE = 'Points of change'
 export const RECOMMENDATIONS_GRAPH_COMING_SOON = 'Graph coming soon...'
 export const RECOMMENDATIONS_SOCIAL_MEDIA_TITLE = 'Social media messages'
 export const RECOMMENDATIONS_GET_MORE = 'Get more'
+export const RECOMMENDATIONS_INFO_UPDATED = 'Info updated at'
 
 export const DEFAULT_ERROR = 'Bad request'
 export const BE_ERROR = 'Error: Network Error'

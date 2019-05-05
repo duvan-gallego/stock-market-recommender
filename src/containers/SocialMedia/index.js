@@ -38,6 +38,7 @@ const SocialMedia = ({
       {socialMedia.isFetching
         ? <Spinner className='socialMedia__spinner' />
         : (
+          // TODO: Add pagination to not load all messages
           <>
             {messagesToShow.map((message, i) => <SocialMediaMessage {...message} key={i} />)}
             {moreMessages &&

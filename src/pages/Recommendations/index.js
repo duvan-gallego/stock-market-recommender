@@ -18,6 +18,7 @@ import {
   HOME_GREETING,
   HOME_GREETING_RECOMMENDATIONS,
   HOME_GREETING_DATA,
+  RECOMMENDATIONS_INFO_UPDATED,
 } from '../../messages';
 
 import './styles.scss';
@@ -74,6 +75,11 @@ const Recommendations = ({ recommendations }) => (
 
     <footer className='recommendations__footer'>
       <div className='recommendations__footer-content'>
+        {recommendations.dateOfUpdate &&
+          <div className='recommendations__footer-content--updated'>
+            {`${RECOMMENDATIONS_INFO_UPDATED} ${recommendations.dateOfUpdate.toDateString()}, ${recommendations.dateOfUpdate.toLocaleTimeString()} h`}
+          </div>
+        }
         Copyright stock market recommender...
       </div>
     </footer>
