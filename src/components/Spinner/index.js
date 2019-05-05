@@ -7,7 +7,7 @@ import './styles.scss';
 
 const Spinner = ({ text }) => (
   <div className='spinner'>
-    <img src={spinnerImg} className='spinner__img' />
+    <img src={spinnerImg} className='spinner__img' alt='Loading' />
     <div className='spinner__text'>{text}</div>
   </div>
 );

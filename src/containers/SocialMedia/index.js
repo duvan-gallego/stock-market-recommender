@@ -1,31 +1,55 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BoxBig from '../../components/BoxBig';
+import SocialMediaMessage from '../../components/SocialMediaMessage';
 import {
   RECOMMENDATIONS_SOCIAL_MEDIA_TITLE
 } from '../../messages';
 
 import './styles.scss';
 
-const SocialMedia = () => (
+const SocialMedia = ({ messages }) => (
   <BoxBig
     title={RECOMMENDATIONS_SOCIAL_MEDIA_TITLE}
   >
-    <div>
-      social media info...
-    </div>
+    <>
+      {messages.map((message, i) => <SocialMediaMessage {...message} key={i} />)}
+    </>
   </BoxBig>
 );
 
-/*SocialMedia.defaultProps = {
-  highlight: false,
+SocialMedia.defaultProps = {
+  messages: [
+    {
+      socialNetwork: 'Twitter',
+      message: 'We are actually talking about $GOO message number 0'
+    },
+    {
+      socialNetwork: 'Facebook',
+      message: 'We are actually talking about $GOO message number 1'
+    },
+    /*{
+      socialNetwork: 'Facebook',
+      message: 'We are actually talking about $GOO message number 2'
+    },
+    {
+      socialNetwork: 'Facebook',
+      message: 'We are actually talking about $GOO message number 3'
+    },
+    {
+      socialNetwork: 'Facebook',
+      message: 'We are actually talking about $GOO message number 3'
+    },
+    {
+      socialNetwork: 'Facebook',
+      message: 'We are actually talking about $GOO message number 3'
+    } */
+  ],
 }
 
 SocialMedia.propTypes = {
-  highlight: PropTypes.bool,
-  icon: PropTypes.any,
-  text: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};*/
+  messages: PropTypes.array,
+};
 
 export default SocialMedia;
 

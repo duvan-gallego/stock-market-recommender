@@ -13,7 +13,7 @@ const BoxInfo = ({
       {title}
       <div className='boxInfo__detail'>
         {icon &&
-          <img src={icon} className='boxInfo__detail-img' />
+          <img src={icon} className='boxInfo__detail-img' alt={title} />
         }
         <div className={cn('boxInfo__detail-text', { 'boxInfo__detail-text--highlight': highlight })}>
           {text}
@@ -29,7 +29,10 @@ BoxInfo.defaultProps = {
 BoxInfo.propTypes = {
   highlight: PropTypes.bool,
   icon: PropTypes.any,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   title: PropTypes.string.isRequired,
 };
 
