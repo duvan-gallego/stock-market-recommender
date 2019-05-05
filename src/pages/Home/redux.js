@@ -1,7 +1,8 @@
 import {
   GET_RECOMMENDATIONS,
   GET_RECOMMENDATIONS_SUCCESS,
-  GET_RECOMMENDATIONS_ERROR
+  GET_RECOMMENDATIONS_ERROR,
+  RESET_RECOMMENDATIONS,
 } from './constants';
 
 const initialState = {
@@ -37,6 +38,10 @@ export default (state = initialState, action) => {
         ...state,
         isFetching: false,
         errorMsg: payload
+      };
+    case RESET_RECOMMENDATIONS:
+      return {
+        ...initialState,
       };
     default:
       return state;

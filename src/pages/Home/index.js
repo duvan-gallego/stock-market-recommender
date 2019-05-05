@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import moment from 'moment';
@@ -8,7 +8,7 @@ import Button from '../../components/Button';
 import Select from '../../components/Select';
 import RangeDatePicker from '../../components/RangeDatePicker';
 import Spinner from '../../components/Spinner';
-import { getRecommendations } from './actions';
+import { getRecommendations, resetRecommendations } from './actions';
 
 import logo_color from '../../assets/logo_color.png'
 
@@ -39,12 +39,22 @@ const SN_OPTIONS = [
   }
 ]
 
-const Home = ({ getRecommendations: getRecommendationsAction, recommendations }) => {
+const Home = ({
+  getRecommendations: getRecommendationsAction,
+  resetRecommendations: resetRecommendationsAction,
+  recommendations,
+}) => {
 
   const [stockSymbol, setStockSymbol] = useState("");
   const [socialNetwork, setSocialNetwork] = useState("");
   const [startDate, setStartDate] = useState(moment().subtract('days', 10).format('YYYY-MM-DD'));
   const [endDate, setEndDate] = useState(moment().format('YYYY-MM-DD'));
+
+  useEffect(() => {
+    if (recommendations.stockSymbol) {
+      resetRecommendationsAction();
+    }
+  }, []);
 
   const onClickHandler = () => {
     if (stockSymbol) {
@@ -123,4 +133,4 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
 const mapStateToProps = ({ recommendations }) => ({ recommendations });
 
 
-export default connect(mapStateToProps, { getRecommendations })(Home);
+export default connect(mapStateToProps, { getRecommendations, resetRecommendations })(Home);
