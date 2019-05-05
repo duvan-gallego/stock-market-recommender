@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, delay } from 'redux-saga/effects';
 import {
   GET_RECOMMENDATIONS,
   GET_RECOMMENDATIONS_SUCCESS,
@@ -12,8 +12,12 @@ import {
 function* getRecommendationsWorker(payload) {
   try {
     const data = yield call(getRecommendationsApi, payload.data);
+    // TODO: This line is added only to better simulate the BE, delete it when BE is ready
+    yield delay(3000);
+
     yield put({ type: GET_RECOMMENDATIONS_SUCCESS, payload: data });
   } catch (e) {
+    console.log(e);
     yield put({ type: GET_RECOMMENDATIONS_ERROR, payload: e });
   }
 }

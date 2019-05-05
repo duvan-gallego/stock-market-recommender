@@ -34,7 +34,6 @@ const SN_OPTIONS = [
   }
 ]
 
-
 const Home = ({ getRecommendations: getRecommendationsAction, recommendations }) => {
 
   const [stockSymbol, setStockSymbol] = useState("");

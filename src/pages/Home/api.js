@@ -1,6 +1,6 @@
 import { apiInstance, errorHandler } from '../../api';
 
-// Function to generate randomly socialMedia post, only used to mock data
+// TODO: Function to generate randomly socialMedia post, only used to mock data
 // These function should be deleted when BE is ready
 const socialMediaGenerator = (stockSymbol, socialNetwork, amount) => {
   let socialMediaMessages = [];
@@ -17,7 +17,7 @@ const socialMediaGenerator = (stockSymbol, socialNetwork, amount) => {
 
 export const getRecommendationsApi = (params) => {
 
-  // CODE TO GENERATE MOCK DATA
+  // TODO: CODE TO GENERATE MOCK DATA, DELETE IT WHEN BE IS READY
   const AMOUNT_OF_POST = Math.floor(Math.random() * 100);
   const socialNetwork = params.socialNetwork;
   const stockSymbolUpperCase = `$${params.stockSymbol.toUpperCase()}`;
@@ -29,7 +29,7 @@ export const getRecommendationsApi = (params) => {
   // Mock Data returned
   return {
     stockSymbol: stockSymbolUpperCase,
-    stockPrice: Math.floor(Math.random() * 1000),
+    stockPrice: `$${Math.floor(Math.random() * 1000)}`,
     socialNetwork,
     countOfSocialMediaPost: AMOUNT_OF_POST,
     dateOfUpdate: new Date(),
@@ -37,7 +37,7 @@ export const getRecommendationsApi = (params) => {
     socialMediaMessages,
   }
 
-  // Uncomment this code and delete all the previous one, when BE is ready
+  // TODO: Uncomment this code and delete all the previous one, when BE is ready
   /*return apiInstance({
     url: '/recommendations',
     method: 'get',

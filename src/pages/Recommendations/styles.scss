@@ -4,7 +4,7 @@
 
 .recommendations {
 
-  &__header {
+  &__nav {
     background: $light-black;
 
     &-content {
@@ -30,10 +30,38 @@
     }
   }
 
+  &__header {
+    height: 40px;
+    padding: 5px;
+    border: solid 2px $green1;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+
+    &-text {
+      font-size: $text-size-xxl;
+      font-weight: bold;
+      line-height: 40px;
+
+      &--highlight {
+        color: $green1;
+      }
+    }
+
+    &-img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+
+  }
+
   &__body {
     width: 1200px;
     margin: auto;
-    padding: 10px;
+    padding: 0 10px 0 10px;
 
     &-initial-text {
       margin: 0;

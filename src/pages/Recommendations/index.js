@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import BoxInfo from '../../components/BoxInfo';
 
 import stock from '../../assets/stock.svg';
-import recomendation from '../../assets/recomendation.svg';
+import price from '../../assets/price.svg';
 import socialNetwork from '../../assets/socialNetwork.svg';
+import graph from '../../assets/graph.svg';
 
 import {
   RECOMMENDATIONS_STOCK_SELECTED,
   RECOMMENDATIONS_RECOMMENDATION,
   RECOMMENDATIONS_SM_COUNTER,
+  RECOMMENDATIONS_STOCK_PRICE,
 } from '../../messages';
 
 import './styles.scss';
@@ -18,13 +20,19 @@ import './styles.scss';
 
 const Recommendations = ({ recommendations }) => (
   <div className='recommendations'>
-    <nav className='recommendations__header'>
-      <div className='recommendations__header-content'>
-        <span className='recommendations__header-logo'>Logo...</span>
-        <span className='recommendations__header-title'>Stock Market Recommender</span>
+    <nav className='recommendations__nav'>
+      <div className='recommendations__nav-content'>
+        <span className='recommendations__nav-logo'>Logo...</span>
+        <span className='recommendations__nav-title'>Stock Market Recommender</span>
       </div>
     </nav>
     <section className='recommendations__body'>
+      <header className='recommendations__header'>
+        <img src={graph} className='recommendations__header-img' />
+        <div className='recommendations__header-text'>
+          {RECOMMENDATIONS_RECOMMENDATION} <span className='recommendations__header-text--highlight'>{recommendations.recommendation}</span>
+        </div>
+      </header>
       <h3 className='recommendations__body-initial-text'>
         Hi User!
         <br />
@@ -40,9 +48,9 @@ const Recommendations = ({ recommendations }) => (
           icon={stock}
         />
         <BoxInfo
-          title={RECOMMENDATIONS_RECOMMENDATION}
-          text={recommendations.recommendation}
-          icon={recomendation}
+          title={RECOMMENDATIONS_STOCK_PRICE}
+          text={recommendations.stockPrice}
+          icon={price}
           highlight
         />
         <BoxInfo

@@ -10,8 +10,9 @@ export const HOME_ERROR_STOCK_SYMBOL = 'Write a valid stock symbol'
 
 
 export const RECOMMENDATIONS_STOCK_SELECTED = 'Stock selected'
-export const RECOMMENDATIONS_RECOMMENDATION = 'Recommendation'
+export const RECOMMENDATIONS_RECOMMENDATION = 'Our recommendation is'
 export const RECOMMENDATIONS_SM_COUNTER = 'Social network counter'
+export const RECOMMENDATIONS_STOCK_PRICE = 'Stock price'
 
 
 
