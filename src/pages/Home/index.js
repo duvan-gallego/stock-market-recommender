@@ -10,6 +10,8 @@ import RangeDatePicker from '../../components/RangeDatePicker';
 import Spinner from '../../components/Spinner';
 import { getRecommendations } from './actions';
 
+import logo_color from '../../assets/logo_color.png'
+
 import './styles.scss';
 import {
   HOME_TITLE,
@@ -74,12 +76,12 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
 
   return (
     <>
-
       {recommendations.stockSymbol
         ? (<Redirect to='/recommendations' />)
         : (
           <div className='home'>
             <h1 className='home__title'>{HOME_TITLE}</h1>
+            <img src={logo_color} className='home__img' alt='Logo Home' />
             {recommendations.isFetching
               ? (<Spinner />)
               : (

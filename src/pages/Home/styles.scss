@@ -3,10 +3,16 @@
 
 .home {
   width: 700px;
-  margin: 5% auto;
+  margin: auto;
 
   &__title {
-    margin-bottom: 50px;
+    margin-bottom: 0;
+  }
+
+  &__img {
+    height: 280px;
+    display: block;
+    margin: auto;
   }
 
 }

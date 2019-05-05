@@ -22,7 +22,7 @@
     &-logo {
       color: $light-wite;
       line-height: 60px;
-      margin-left: 15px;
+      height: 60px;
     }
 
     &-title {
@@ -44,6 +44,8 @@
     margin-bottom: 10px;
     margin-top: 10px;
     display: flex;
+    background: $neutral-white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
     &-text {
       font-size: $text-size-xxl;

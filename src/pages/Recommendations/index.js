@@ -9,6 +9,7 @@ import stock from '../../assets/stock.svg';
 import price from '../../assets/price.svg';
 import socialNetwork from '../../assets/socialNetwork.svg';
 import graph from '../../assets/graph.svg';
+import logo_header from '../../assets/logo_header.png';
 
 import {
   RECOMMENDATIONS_STOCK_SELECTED,
@@ -30,7 +31,7 @@ const Recommendations = ({ recommendations }) => (
   <div className='recommendations'>
     <nav className='recommendations__nav'>
       <div className='recommendations__nav-content'>
-        <span className='recommendations__nav-logo'>Logo...</span>
+        <img src={logo_header} alt='Logo header' className='recommendations__nav-logo' />
         <span className='recommendations__nav-title'>{HOME_TITLE}</span>
       </div>
     </nav>
