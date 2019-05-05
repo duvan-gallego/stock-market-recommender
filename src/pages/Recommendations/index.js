@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 
 import BoxInfo from '../../components/BoxInfo';
 import SocialMedia from '../../containers/SocialMedia';
@@ -28,66 +29,75 @@ import './styles.scss';
 
 
 const Recommendations = ({ recommendations }) => (
-  <div className='recommendations'>
-    <nav className='recommendations__nav'>
-      <div className='recommendations__nav-content'>
-        <img src={logo_header} alt='Logo header' className='recommendations__nav-logo' />
-        <span className='recommendations__nav-title'>{HOME_TITLE}</span>
-      </div>
-    </nav>
-    <section className='recommendations__body'>
-      <header className='recommendations__header'>
-        <img src={graph} className='recommendations__header-img' alt={RECOMMENDATIONS_RECOMMENDATION} />
-        <div className='recommendations__header-text'>
-          {RECOMMENDATIONS_RECOMMENDATION} <span className='recommendations__header-text--highlight'>{recommendations.recommendation}</span>
-        </div>
-      </header>
-      <h3 className='recommendations__body-text'>
-        <div>{HOME_GREETING}</div>
-        {RECOMMENDATIONS_GREETING_RECOMMENDATIONS}
-        <span className='recommendations__body-text--bold'> {recommendations.stockSymbol} </span>
-        {RECOMMENDATIONS_GREETING_DATA}
-        <span className='recommendations__body-text--bold'> {recommendations.startDate} </span>
-        {RECOMMENDATIONS_GREETING_TO}
-        <span className='recommendations__body-text--bold'> {recommendations.endDate} </span>
-      </h3>
-      <div className='recommendations__box-wrapper'>
-        <BoxInfo
-          title={RECOMMENDATIONS_STOCK_SELECTED}
-          text={recommendations.stockSymbol}
-          icon={stock}
-        />
-        <BoxInfo
-          title={RECOMMENDATIONS_STOCK_PRICE}
-          text={recommendations.stockPrice}
-          icon={price}
-          highlight
-        />
-        <BoxInfo
-          title={RECOMMENDATIONS_SM_COUNTER}
-          text={recommendations.countOfSocialMediaPost}
-          icon={socialNetwork}
-        />
-      </div>
-    </section>
-    <section className='recommendations__sm-and-graph'>
-      <div className='recommendations__box-wrapper recommendations__box-wrapper--responsive'>
-        <Graph />
-        <SocialMedia />
-      </div>
-    </section>
+  <>
+    {recommendations.stockSymbol === null
+      ? (<Redirect to='/' />)
+      : (
+        <div className='recommendations'>
+          <nav className='recommendations__nav'>
+            <div className='recommendations__nav-content'>
+              <Link to='/'>
+                <img src={logo_header} alt='Logo header' className='recommendations__nav-logo' />
+              </Link>
+              <span className='recommendations__nav-title'>{HOME_TITLE}</span>
+            </div>
+          </nav>
+          <section className='recommendations__body'>
+            <header className='recommendations__header'>
+              <img src={graph} className='recommendations__header-img' alt={RECOMMENDATIONS_RECOMMENDATION} />
+              <div className='recommendations__header-text'>
+                {RECOMMENDATIONS_RECOMMENDATION} <span className='recommendations__header-text--highlight'>{recommendations.recommendation}</span>
+              </div>
+            </header>
+            <h3 className='recommendations__body-text'>
+              <div>{HOME_GREETING}</div>
+              {RECOMMENDATIONS_GREETING_RECOMMENDATIONS}
+              <span className='recommendations__body-text--bold'> {recommendations.stockSymbol} </span>
+              {RECOMMENDATIONS_GREETING_DATA}
+              <span className='recommendations__body-text--bold'> {recommendations.startDate} </span>
+              {RECOMMENDATIONS_GREETING_TO}
+              <span className='recommendations__body-text--bold'> {recommendations.endDate} </span>
+            </h3>
+            <div className='recommendations__box-wrapper'>
+              <BoxInfo
+                title={RECOMMENDATIONS_STOCK_SELECTED}
+                text={recommendations.stockSymbol}
+                icon={stock}
+              />
+              <BoxInfo
+                title={RECOMMENDATIONS_STOCK_PRICE}
+                text={recommendations.stockPrice}
+                icon={price}
+                highlight
+              />
+              <BoxInfo
+                title={RECOMMENDATIONS_SM_COUNTER}
+                text={recommendations.countOfSocialMediaPost}
+                icon={socialNetwork}
+              />
+            </div>
+          </section>
+          <section className='recommendations__sm-and-graph'>
+            <div className='recommendations__box-wrapper recommendations__box-wrapper--responsive'>
+              <Graph />
+              <SocialMedia />
+            </div>
+          </section>
 
-    <footer className='recommendations__footer'>
-      <div className='recommendations__footer-content'>
-        {recommendations.dateOfUpdate &&
-          <div className='recommendations__footer-content--updated'>
-            {`${RECOMMENDATIONS_INFO_UPDATED} ${recommendations.dateOfUpdate.toDateString()}, ${recommendations.dateOfUpdate.toLocaleTimeString()} h`}
-          </div>
-        }
-        Copyright stock market recommender...
-      </div>
-    </footer>
-  </div >
+          <footer className='recommendations__footer'>
+            <div className='recommendations__footer-content'>
+              {recommendations.dateOfUpdate &&
+                <div className='recommendations__footer-content--updated'>
+                  {`${RECOMMENDATIONS_INFO_UPDATED} ${recommendations.dateOfUpdate.toDateString()}, ${recommendations.dateOfUpdate.toLocaleTimeString()} h`}
+                </div>
+              }
+              Copyright stock market recommender...
+            </div>
+          </footer>
+        </div >
+      )
+    }
+  </>
 );
 
 const mapStateToProps = ({ recommendations }) => ({ recommendations });
