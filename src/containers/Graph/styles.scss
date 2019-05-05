@@ -6,7 +6,18 @@
   text-transform: uppercase;
   text-align: center;
   font-weight: 500;
-  margin-top: 100px;
+  margin-top: 10px;
   font-size: $text-size-super-l;
   color: $neutral_black;
+
+  &__text {
+    position: absolute;
+    z-index: 1;
+    margin: 70px 0 0 110px;
+  }
+
+  &__img {
+    height: 260px;
+    filter: blur(3px);
+  }
 }

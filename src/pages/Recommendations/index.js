@@ -70,7 +70,7 @@ const Recommendations = ({ recommendations }) => (
       </div>
     </section>
     <section className='recommendations__sm-and-graph'>
-      <div className='recommendations__box-wrapper'>
+      <div className='recommendations__box-wrapper recommendations__box-wrapper--responsive'>
         <Graph />
         <SocialMedia />
       </div>

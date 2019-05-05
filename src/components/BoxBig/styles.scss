@@ -14,3 +14,10 @@
   font-weight: bold;
   overflow-y: auto;
 }
+
+@include onTablet {
+  .boxBig {
+    margin-top: 15px;
+    width: 98%;
+  }
+}

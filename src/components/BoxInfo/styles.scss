@@ -36,3 +36,10 @@
     }
   }
 }
+
+@include onTabletPortrait {
+  .boxInfo {
+    width: 98%;
+    margin-top: 10px;
+  }
+}
