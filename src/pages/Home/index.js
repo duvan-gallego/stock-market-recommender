@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Select from '../../components/Select';
+import Spinner from '../../components/Spinner';
 import { getRecommendations } from './actions';
 
 import './styles.scss';
@@ -58,29 +59,37 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
 
   return (
     <>
+
       {recommendations.stockSymbol
         ? (<Redirect to='/recommendations' />)
         : (
           <div className='home'>
             <h1 className='home__title'>{HOME_TITLE}</h1>
-            <Input
-              type='text'
-              placeholder={HOME_INPUT_PLACEHOLDER}
-              name='stock_symbol'
-              onChange={e => setStockSymbol(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && onClickHandler()}
-              alt={HOME_INPUT_PLACEHOLDER}
-            />
-            <Select
-              noSelectedText={HOME_SELECT_PLACEHOLDER}
-              options={SN_OPTIONS}
-              onChange={onChangeHnadler}
-              value={socialNetwork}
-            />
-            <Button
-              onClick={onClickHandler}
-              text={HOME_BUTTON_TEXT}
-            />
+            {recommendations.isFetching
+              ? (<Spinner />)
+              : (
+                <>
+                  <Input
+                    type='text'
+                    placeholder={HOME_INPUT_PLACEHOLDER}
+                    name='stock_symbol'
+                    onChange={e => setStockSymbol(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && onClickHandler()}
+                    alt={HOME_INPUT_PLACEHOLDER}
+                  />
+                  <Select
+                    noSelectedText={HOME_SELECT_PLACEHOLDER}
+                    options={SN_OPTIONS}
+                    onChange={onChangeHnadler}
+                    value={socialNetwork}
+                  />
+                  <Button
+                    onClick={onClickHandler}
+                    text={HOME_BUTTON_TEXT}
+                  />
+                </>
+              )
+            }
           </div>
         )
       }

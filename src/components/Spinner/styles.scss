@@ -1,0 +1,22 @@
+@import '../../utils/scss/colors';
+@import '../../utils/scss/font-size';
+
+.spinner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    width: 80px;
+    height: 80px;
+  }
+
+  &__text {
+    margin-top: 10px;
+    font-size: $text-size-xl;
+    color: $blue1;
+    font-weight: bold;
+  }
+
+}
