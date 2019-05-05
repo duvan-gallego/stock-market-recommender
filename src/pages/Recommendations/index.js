@@ -15,9 +15,11 @@ import {
   RECOMMENDATIONS_RECOMMENDATION,
   RECOMMENDATIONS_SM_COUNTER,
   RECOMMENDATIONS_STOCK_PRICE,
+  HOME_TITLE,
   HOME_GREETING,
-  HOME_GREETING_RECOMMENDATIONS,
-  HOME_GREETING_DATA,
+  RECOMMENDATIONS_GREETING_RECOMMENDATIONS,
+  RECOMMENDATIONS_GREETING_DATA,
+  RECOMMENDATIONS_GREETING_TO,
   RECOMMENDATIONS_INFO_UPDATED,
 } from '../../messages';
 
@@ -29,7 +31,7 @@ const Recommendations = ({ recommendations }) => (
     <nav className='recommendations__nav'>
       <div className='recommendations__nav-content'>
         <span className='recommendations__nav-logo'>Logo...</span>
-        <span className='recommendations__nav-title'>Stock Market Recommender</span>
+        <span className='recommendations__nav-title'>{HOME_TITLE}</span>
       </div>
     </nav>
     <section className='recommendations__body'>
@@ -39,13 +41,14 @@ const Recommendations = ({ recommendations }) => (
           {RECOMMENDATIONS_RECOMMENDATION} <span className='recommendations__header-text--highlight'>{recommendations.recommendation}</span>
         </div>
       </header>
-      <h3 className='recommendations__body-initial-text'>
-        {HOME_GREETING}
-        <br />
-        {HOME_GREETING_RECOMMENDATIONS}
-        <span className='recommendations__body-initial-text--bold'> {recommendations.stockSymbol} </span>
-        {HOME_GREETING_DATA}
-        <span className='recommendations__body-initial-text--bold'> 10 days.</span>
+      <h3 className='recommendations__body-text'>
+        <div>{HOME_GREETING}</div>
+        {RECOMMENDATIONS_GREETING_RECOMMENDATIONS}
+        <span className='recommendations__body-text--bold'> {recommendations.stockSymbol} </span>
+        {RECOMMENDATIONS_GREETING_DATA}
+        <span className='recommendations__body-text--bold'> {recommendations.startDate} </span>
+        {RECOMMENDATIONS_GREETING_TO}
+        <span className='recommendations__body-text--bold'> {recommendations.endDate} </span>
       </h3>
       <div className='recommendations__box-wrapper'>
         <BoxInfo

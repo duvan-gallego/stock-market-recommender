@@ -16,6 +16,8 @@ export const getRecommendationsApi = (params) => {
     stockSymbol: stockSymbolUpperCase,
     stockPrice: `$${Math.floor(Math.random() * 1000)}`,
     socialNetwork,
+    startDate: params.startDate,
+    endDate: params.endDate,
     countOfSocialMediaPost: AMOUNT_OF_POST,
     dateOfUpdate: new Date(),
     recommendation,

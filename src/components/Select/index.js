@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Select = ({ noSelectedText, options, onChange, value }) => (
-  <select className='select' onChange={onChange} value={value}>
+  <select className='select' onChange={onChange} value={value} name='select'>
     <option value=''>{noSelectedText}</option>
     {options.map(option =>
       <option key={option._id} value={option._id}>{option.name}</option>

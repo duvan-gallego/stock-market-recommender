@@ -1,0 +1,25 @@
+@import '../../utils/scss/colors';
+@import '../../utils/scss/font-size';
+
+.rangeDatePicker {
+  font-size: $text-size-super-l;
+  color: $gray1;
+  display: flex;
+  justify-content: space-between;
+  width: 103%;
+  line-height: 70px;
+  margin-top: 6px;
+
+  &__input {
+    border: 0;
+    border-bottom: 2px solid $blue1;
+    font-size: $text-size-super-l;
+    line-height: 35px;
+    height: 50px;
+    text-align: center;
+    padding: 10px;
+    background: transparent;
+    color: $gray1;
+    width: 38%;
+  }
+}

@@ -8,6 +8,8 @@ const initialState = {
   stockSymbol: null,
   stockPrice: null,
   socialNetwork: null,
+  startDate: null,
+  endDate: null,
   countOfSocialMediaPost: null,
   dateOfUpdate: null,
   recommendation: null,

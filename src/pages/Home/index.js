@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Select from '../../components/Select';
+import RangeDatePicker from '../../components/RangeDatePicker';
 import Spinner from '../../components/Spinner';
 import { getRecommendations } from './actions';
 
@@ -39,6 +41,8 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
 
   const [stockSymbol, setStockSymbol] = useState("");
   const [socialNetwork, setSocialNetwork] = useState("");
+  const [startDate, setStartDate] = useState(moment().subtract('days', 10).format('YYYY-MM-DD'));
+  const [endDate, setEndDate] = useState(moment().format('YYYY-MM-DD'));
 
   const onClickHandler = () => {
     if (stockSymbol) {
@@ -46,15 +50,26 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
       if (!socialNetworkSelected) {
         socialNetworkSelected = HOME_SELECT_SN_OP1;
       }
-      getRecommendationsAction(stockSymbol, socialNetworkSelected);
+      getRecommendationsAction(stockSymbol, socialNetworkSelected, startDate, endDate);
     } else {
       // TODO: Change this alert for an error in the input
       alert(HOME_ERROR_STOCK_SYMBOL);
     }
   }
 
-  const onChangeHnadler = (e) => {
-    setSocialNetwork(e.target.value);
+  const onChangeHandler = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case 'startDate':
+        setStartDate(value);
+        break;
+      case 'endDate':
+        setEndDate(value);
+        break;
+      default:
+        setSocialNetwork(value);
+        break;
+    }
   }
 
   return (
@@ -80,8 +95,13 @@ const Home = ({ getRecommendations: getRecommendationsAction, recommendations })
                   <Select
                     noSelectedText={HOME_SELECT_PLACEHOLDER}
                     options={SN_OPTIONS}
-                    onChange={onChangeHnadler}
+                    onChange={onChangeHandler}
                     value={socialNetwork}
+                  />
+                  <RangeDatePicker
+                    startDate={startDate}
+                    endDate={endDate}
+                    onChange={onChangeHandler}
                   />
                   <Button
                     onClick={onClickHandler}
