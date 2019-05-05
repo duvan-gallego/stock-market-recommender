@@ -1,0 +1,15 @@
+@import '../../utils/scss/colors';
+@import '../../utils/scss/media-query';
+@import '../../utils/scss/font-size';
+
+.socialMedia {
+  height: 300px;
+  width: 48%;
+  border: solid 2px $blue1;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 5px;
+  text-align: center;
+  color: $gray1;
+  font-weight: 500;
+}

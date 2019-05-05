@@ -1,0 +1,12 @@
+@import '../../utils/scss/colors';
+@import '../../utils/scss/media-query';
+@import '../../utils/scss/font-size';
+
+.graph {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 100px;
+  font-size: $text-size-super-l;
+  color: $neutral_black;
+}

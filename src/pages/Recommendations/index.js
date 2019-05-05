@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import BoxInfo from '../../components/BoxInfo';
+import SocialMedia from '../../containers/SocialMedia';
+import Graph from '../../containers/Graph';
 
 import stock from '../../assets/stock.svg';
 import price from '../../assets/price.svg';
@@ -13,6 +15,9 @@ import {
   RECOMMENDATIONS_RECOMMENDATION,
   RECOMMENDATIONS_SM_COUNTER,
   RECOMMENDATIONS_STOCK_PRICE,
+  HOME_GREETING,
+  HOME_GREETING_RECOMMENDATIONS,
+  HOME_GREETING_DATA,
 } from '../../messages';
 
 import './styles.scss';
@@ -34,11 +39,11 @@ const Recommendations = ({ recommendations }) => (
         </div>
       </header>
       <h3 className='recommendations__body-initial-text'>
-        Hi User!
+        {HOME_GREETING}
         <br />
-        These are the recommendations for the
-        <span className='recommendations__body-initial-text--bold'> $GOO </span>
-        stock, based on data from the last
+        {HOME_GREETING_RECOMMENDATIONS}
+        <span className='recommendations__body-initial-text--bold'> {recommendations.stockSymbol} </span>
+        {HOME_GREETING_DATA}
         <span className='recommendations__body-initial-text--bold'> 10 days.</span>
       </h3>
       <div className='recommendations__box-wrapper'>
@@ -60,12 +65,18 @@ const Recommendations = ({ recommendations }) => (
         />
       </div>
     </section>
+    <section className='recommendations__sm-and-graph'>
+      <div className='recommendations__box-wrapper'>
+        <Graph />
+        <SocialMedia />
+      </div>
+    </section>
 
-    <div className='recommendations__footer'>
+    <footer className='recommendations__footer'>
       <div className='recommendations__footer-content'>
         Copyright stock market recommender...
       </div>
-    </div>
+    </footer>
   </div >
 );
 
